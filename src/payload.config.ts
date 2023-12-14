@@ -4,13 +4,14 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 
+import { Orders } from './collections/Orders'
 import { Users } from './collections/Users'
 import BeforeLogin from './components/BeforeLogin'
 import { Icon } from './components/Icon'
 import { Logo } from './components/Logo'
 
 export default buildConfig({
-  collections: [Users],
+  collections: [Users, Orders],
   admin: {
     bundler: webpackBundler(),
     components: {
