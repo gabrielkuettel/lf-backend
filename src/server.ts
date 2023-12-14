@@ -2,6 +2,9 @@ import express from 'express'
 import path from 'path'
 import payload from 'payload'
 
+import { authMiddleware } from './middleware/authMiddleware'
+import { errorMiddleware } from './middleware/errorMiddleware'
+import aiRoutes from './routes/ai'
 import { seed } from './seed'
 
 // eslint-disable-next-line
@@ -30,6 +33,11 @@ const start = async (): Promise<void> => {
     payload.logger.info('---- SEEDING DATABASE ----')
     await seed(payload)
   }
+
+  // Add your own express routes here
+  app.use('/ai', authMiddleware, aiRoutes)
+
+  app.use(errorMiddleware)
 
   app.listen(3000)
 }
