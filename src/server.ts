@@ -11,6 +11,8 @@ require('dotenv').config({
 
 const app = express()
 
+app.use('/assets', express.static(path.resolve(__dirname, './assets')))
+
 app.get('/', (_, res) => {
   res.redirect('/admin')
 })

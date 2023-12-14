@@ -6,6 +6,8 @@ import { buildConfig } from 'payload/config'
 
 import { Users } from './collections/Users'
 import BeforeLogin from './components/BeforeLogin'
+import { Icon } from './components/Icon'
+import { Logo } from './components/Logo'
 
 export default buildConfig({
   collections: [Users],
@@ -13,6 +15,14 @@ export default buildConfig({
     bundler: webpackBundler(),
     components: {
       beforeLogin: [BeforeLogin],
+      graphics: {
+        Logo,
+        Icon,
+      },
+    },
+    meta: {
+      titleSuffix: '- Local Fiber',
+      favicon: '/assets/favicon.png',
     },
   },
   editor: slateEditor({}),

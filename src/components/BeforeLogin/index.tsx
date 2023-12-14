@@ -5,9 +5,9 @@ const BeforeLogin: React.FC = () => {
     return (
       <p>
         {'Log in with the email '}
-        <strong>demo@payloadcms.com</strong>
+        <strong>amin@amin.com</strong>
         {' and the password '}
-        <strong>demo</strong>.
+        <strong>amin</strong>.
       </p>
     )
   }
