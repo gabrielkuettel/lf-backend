@@ -1,12 +1,10 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-function-return-type */
 import OpenAI from 'openai'
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
 require('dotenv').config()
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any
 const aiController = async (req: any, res, next) => {
   try {
     const content = req.query.content
@@ -16,7 +14,7 @@ const aiController = async (req: any, res, next) => {
     }
 
     const completion = await openai.chat.completions.create({
-      messages: [{ role: 'system', content: content }],
+      messages: [{ role: 'system', content }],
       model: 'gpt-4-1106-preview',
     })
 
