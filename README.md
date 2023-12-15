@@ -1,7 +1,5 @@
 ## Getting Started
 
-To spin up this example locally, follow these steps:
-
 1. Clone this repo
 2. `cd` into this directory and run `yarn`
 3. `cp .env.example .env` to copy the example environment variables
@@ -9,9 +7,11 @@ To spin up this example locally, follow these steps:
 5. `open http://localhost:3000/admin` to access the admin panel
 6. Login with email `admin@admin.com` and password `admin`
 
+**Note**: To use the custom `/ai` route, you need to provide a valid API key for [OpenAI](https://openai.com/). This is only necessary if you want to use the `/ai` route, which demonstrates custom Express routes that uses Payload's authentication and access control. The `ai` route takes a `content` param with a message and returns a response from OpenAI's GPT-4 API. For example, you can try this route in the browser: http://localhost:3000/ai?content=add%20two%20plus%20two
+
 ## How it works
 
-The `users` collection exposes all [auth-related operations](https://payloadcms.com/docs/authentication/operations) needed to create a fully custom workflow on your front-end using the REST or GraphQL APIs, including:
+The [`users`](src/collections/Users.ts) collection exposes all [authentication](https://payloadcms.com/docs/authentication/operations) and [access control](https://payloadcms.com/docs/access-control/overview) operations needed to create a fully custom workflow on your front-end using the REST or GraphQL APIs, including:
 
 - `Me`
 - `Login`
